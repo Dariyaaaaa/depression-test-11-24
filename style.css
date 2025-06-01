@@ -1,0 +1,181 @@
+/* СТРАНИЦА ВХОДА */
+body {
+  font-family: 'Comfortaa', Arial, sans-serif;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(237, 231, 252, 0.5),
+    rgba(237, 216, 252, 0.5),
+    rgba(179, 172, 250, 0.5),
+    rgba(133, 108, 223, 0.5),
+    rgba(115, 107, 235, 0.5)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  margin: 30px;
+  padding: 30px;
+  font-size: 48px;
+  font-weight: normal;
+  color: black;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.input-field {
+  width: 280px;
+  height: 75px;
+  padding: 15px;
+  margin: 15px;
+  border: none;
+  border-radius: 45px;
+  background-color: rgba(240, 240, 240, 1);
+  font-family: 'Comfortaa', Arial, sans-serif;
+  font-size: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  outline: none;
+  box-sizing: border-box;
+}
+.login-button {
+  width: 280px;
+  height: 75px;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 45px;
+  border: none;
+  background-color: rgba(176, 160, 224, 1);
+  font-size: 18px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.login-button:hover {
+  background-color: rgba(144, 128, 208, 1);
+}
+.button-text {
+  margin: 15px;
+  padding: 15px;
+  color: white;
+  font-family: 'Comfortaa', Arial, sans-serif;
+}
+.arrow1 {
+  font-size: 25px;
+  color: white;
+}
+/* СТРАНИЦА ВЫБОРА ТЕСТА*/
+h2 {
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: normal;
+  text-align: center;
+}
+.card {
+  width: 450px;
+  height: 125px;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(176, 160, 224, 1);
+  border-radius: 45px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  cursor:pointer;
+  transition: box-shadow 0.3s ease;
+  box-sizing:border-box;
+}
+.card:hover,
+.card.selected {
+  background-color : rgba(144,128,208,1);
+}
+.card-title {
+  font-size:25px;
+  color: white;
+}
+.arrow2 {
+  margin-left: 20px;
+  color: white;
+  font-size: 20px;
+}
+.bottom-nav {
+  display:flex; 
+  justify-content:space-around; 
+  align-items:center; 
+  position:fixed; 
+  padding:10px;
+  bottom:0; 
+  left:0; 
+  right:0; 
+  background:transparent;
+  padding:10px;
+}
+.icon-button {
+  padding:10px; 
+  font-size:24px; 
+  color:black; 
+  background:none; 
+  border:none; 
+  cursor:pointer; 
+}
+.icon-button:hover,
+.icon-button.selected { 
+  background-color : rgba(144,128,208,1);
+  border-radius: 45px;
+  transition:.2s ease;
+}
+/* САМ ТЕСТ*/
+.question {
+  margin: 10px;
+  padding: 10px;
+}
+.question-title {
+  font-weight: normal;
+  font-size: 20px;
+  margin-top: 5px;
+}
+.answer-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;  
+}
+.answer {
+  width: 344px;
+  height: 45px;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 45px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(176, 160, 224, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.answer:hover, 
+.answer.selected {
+  background-color: white;
+}
+.send-button {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 30px ;
+  font-size: 18px;
+  background-color: rgba(144, 128, 208, 1);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.send-button:hover {
+  background-color: rgba(108, 92, 191, 1);
+}
+.result {
+  margin: 30px;
+  font-weight: bold;
+}
+
+
+
