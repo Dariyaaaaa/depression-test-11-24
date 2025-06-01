@@ -203,66 +203,75 @@ answers:[
 const container = document.getElementById('questionsContainer');
 
 questions.forEach((question, index) => {
-  const qNumber = index + 1;
+const qNumber = index +1;
 
-  const div = document.createElement('div');
-  div.className = 'question';
+const div = document.createElement('div');
+div.className='question';
 
-  div.innerHTML = `<div class="question-title">${question.text}</div>`;
+const questionTitle = document.createElement('div');
+questionTitle.innerText=question.text;
 
-  const optionsDiv = document.createElement('div');
-  optionsDiv.className = 'answer-options';
+const optionsDiv = document.createElement('div');
+optionsDiv.className='answer-options';
 
-  question.answers.forEach(ans => {
-    const answerDiv = document.createElement('div');
-    answerDiv.className = 'answer';
-    answerDiv.innerText = ans.text;
-    answerDiv.dataset.value = ans.value;
+question.answers.forEach(ans => {
+const answerDiv=document.createElement('div');
+answerDiv.className='answer';
+answerDiv.innerText=ans.text;
+  
+answerDiv.dataset.value=ans.value;
 
-    answerDiv.onclick = () => {
-      Array.from(optionsDiv.children).forEach(c => c.classList.remove('selected'));
-      answerDiv.classList.add('selected');
+answerDiv.onclick= () => {
+Array.from(optionsDiv.children).forEach(c => c.classList.remove('selected'));
+answerDiv.classList.add('selected');
 
-      const currentQuestion = div;
-      const nextQuestion = currentQuestion.nextElementSibling;
-      if (nextQuestion && nextQuestion.classList.contains('question')) {
-        currentQuestion.style.display = 'none';
-        nextQuestion.style.display = 'block';
-      }
-    };
+const currentQuestion = div;
+const nextQuestion = currentQuestion.nextElementSibling;
+if(nextQuestion && nextQuestion.classList.contains('question')){
+ currentQuestion.style.display='none'; 
+ nextQuestion.style.display='block'; 
+}
+};
 
-    optionsDiv.appendChild(answerDiv);
-  });
-
-  div.appendChild(optionsDiv);
-  container.appendChild(div);
+optionsDiv.appendChild(answerDiv);
 });
 
-document.querySelectorAll('.question').forEach((q, i) => {
-  q.style.display = i === 0 ? 'block' : 'none';
+div.appendChild(questionTitle);
+div.appendChild(optionsDiv);
+container.appendChild(div);
 });
 
-document.getElementById('testForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
+document.querySelectorAll('.question').forEach((q, index) => {
+if(index !==0){
+q.style.display='none';
+}
+});
+  
+document.getElementById('testForm').addEventListener('submit', async function(e) {
+e.preventDefault();
 
-  const answers = {};
-  document.querySelectorAll('.question').forEach((questionDiv, index) => {
-    const qNumber = index + 1;
-    const selectedAnswer = questionDiv.querySelector('.answer.selected');
-    answers['q' + qNumber] = selectedAnswer ? parseInt(selectedAnswer.dataset.value) : null;
-  });
+const answers = {};
+document.querySelectorAll('.question').forEach((questionDiv, index) => {
+const qNumber=index+1;
+const selectedAnswer=questionDiv.querySelector('.answer.selected');
+if(selectedAnswer){
+answers['q'+qNumber]=parseInt(selectedAnswer.dataset.value);
+} else {
+answers['q'+qNumber]=null; 
+}
+});
 
-  try {
-    const response = await fetch('http://localhost:3000/calculate_results', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(answers)
-    });
-    const data = await response.json();
-    document.getElementById('result').innerText =
-      `Ваш балл: ${data.score}\nИнтерпретация:\n${data.interpretation}`;
-  } catch (e) {
-    document.getElementById('result').innerText='Ошибка при отправке данных.';
-    console.error(e);
-  }
+try {
+const response= await fetch('http://localhost:3000/calculate_results',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify(answers)
+});
+const data= await response.json();
+document.getElementById('result').innerText=
+`Ваш балл: ${data.score}\nИнтерпретация:\n${data.interpretation}`;
+} catch(e){
+document.getElementById('result').innerText='Ошибка при отправке данных.';
+console.error(e);
+}
 });
