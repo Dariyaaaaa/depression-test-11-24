@@ -72,8 +72,8 @@ h2 {
 .card {
   width: 450px;
   height: 125px;
-  margin: 20px;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 15px;
   background-color: rgba(176, 160, 224, 1);
   border-radius: 45px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
@@ -132,6 +132,7 @@ h2 {
   font-weight: normal;
   font-size: 20px;
   margin-top: 5px;
+  text-align: center
 }
 .answer-options {
   display: flex;
