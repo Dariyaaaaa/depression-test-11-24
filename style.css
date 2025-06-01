@@ -153,7 +153,6 @@ h2 {
   width: 345px;
   height: 90px;
   margin-bottom: 8px;
-  padding: 10px;
   border-radius: 45px;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
@@ -163,6 +162,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 .answer:hover, 
 .answer.selected {
